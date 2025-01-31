@@ -1,0 +1,25 @@
+{
+  "name": "redis_pawan",
+  "version": "3.0.0",
+  "description": "Use as a cache module",
+  "main": "index.js",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "snappy": "^7.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pratik Khulge",
+  "license": "ISC",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratik-edu/redis_pawan.git"
+  },
+  "keywords": [
+    "Redis",
+    "Caching"
+  ]
+}
