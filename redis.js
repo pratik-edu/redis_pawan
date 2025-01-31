@@ -17,7 +17,7 @@ const EXPIRY = 7200; // i.e. seconds = 2 hour
  * @param {string} serviceName
  * @param {object} options
  */
-function redis_pawan(host, port, serviceName, password, options) {
+function RedisManager(host, port, serviceName, password, options) {
   if (!serviceName || serviceName === "") {
     console.error("Service name is required");
     return "Service name is required";
@@ -381,4 +381,4 @@ function redis_pawan(host, port, serviceName, password, options) {
   };
 }
 
-module.exports = redis_pawan;
+module.exports = RedisManager;
