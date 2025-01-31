@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bull": "^4.16.5",
+    "bullmq": "^5.39.1",
     "redis": "^2.8.0",
     "snappy": "^7.2.1"
   },
