@@ -3,7 +3,6 @@
   "version": "3.0.0",
   "description": "Use as a cache module",
   "main": "index.js",
-  "type": "module",
   "dependencies": {
     "bull": "^4.16.5",
     "redis": "^2.8.0",

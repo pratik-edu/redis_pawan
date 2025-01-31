@@ -1,5 +1,5 @@
 // Modules
-import Queue from "bull";
+const Queue = require("bull");
 
 const serviceTypes = {
   SQS: "sqs",
@@ -207,8 +207,7 @@ class QueueService {
     }
   };
 }
-
-export default {
+module.exports = {
   QueueService,
   serviceTypes,
 };

@@ -5,11 +5,11 @@
  * For now it supports only getKey, setKey, removeKey , in future can implement other required DS.
  */
 
-import { promisify } from "util";
-import { createClient } from "redis";
+const { promisify } = require("util");
+const { createClient } = require("redis");
+const { compress, uncompress } = require("./snappy");
 const EXPIRY = 7200; // i.e. seconds = 2 hour
 
-import { compress, uncompress } from "./snappy";
 /**
  * Return methods i.e. getKey, setKey
  * @param {string} host
@@ -381,4 +381,4 @@ function redis_pawan(host, port, serviceName, password, options) {
   };
 }
 
-export default redis_pawan;
+module.exports = redis_pawan;
