@@ -1,8 +1,7 @@
 const RedisManager = require("./redis");
-const { QueueService, serviceTypes } = require("./queue");
+const QueueService = require("./queue");
 
 module.exports = {
   RedisManager,
   QueueService,
-  serviceTypes,
 };
