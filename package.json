@@ -4,10 +4,13 @@
   "description": "Use as a cache module",
   "main": "index.js",
   "dependencies": {
+    "bull": "^4.16.5",
     "redis": "^2.8.0",
     "snappy": "^7.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/redis": "^4.0.11"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
