@@ -47,7 +47,8 @@ function RedisManager(host, port, serviceName, password, options) {
   const setAsync = promisify(client.set).bind(client);
   const delAsync = promisify(client.del).bind(client);
   const keysAsync = promisify(client.keys).bind(client);
-
+  const incrByAsync = promisify(client.incrby).bind(client);
+  const setTtlAsync = promisify(client.expire).bind(client);
   const getAsyncGlobal = promisify(globalClient.get).bind(globalClient);
   const setAsyncGlobal = promisify(globalClient.set).bind(globalClient);
 
@@ -85,6 +86,24 @@ function RedisManager(host, port, serviceName, password, options) {
     return keysAsync(pattern);
   };
 
+  /**
+   * Increments a key by incrValue. If key does not exist, initializes key to 0 then updates.
+   * @param {String} key
+   * @param {Number} incrValue
+   */
+  const incrementKeyByValue = (key, incrValue) => {
+    return incrByAsync(key, incrValue);
+  };
+
+  /**
+   * Set the key expiry in seconds
+   * @param {String} key
+   * @param {Number} ttl
+   */
+  const setKeyTTL = async (key, ttl) => {
+    return setTtlAsync(key, ttl);
+  };
+
   return {
     getKey,
     setKey,
@@ -92,6 +111,8 @@ function RedisManager(host, port, serviceName, password, options) {
     setGlobalKey,
     removeKey,
     getKeysByRegex,
+    incrementKeyByValue,
+    setKeyTTL,
     DEFAULT_EXPIRY: EXPIRY,
   };
 }
