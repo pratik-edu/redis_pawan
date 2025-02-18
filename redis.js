@@ -49,6 +49,7 @@ function RedisManager(host, port, serviceName, password, options) {
   const keysAsync = promisify(client.keys).bind(client);
   const incrByAsync = promisify(client.incrby).bind(client);
   const setTtlAsync = promisify(client.expire).bind(client);
+  const getTtlAsync = promisify(client.ttl).bind(client);
   const getAsyncGlobal = promisify(globalClient.get).bind(globalClient);
   const setAsyncGlobal = promisify(globalClient.set).bind(globalClient);
 
@@ -104,6 +105,11 @@ function RedisManager(host, port, serviceName, password, options) {
     return setTtlAsync(key, ttl);
   };
 
+  // Get the TTL (Time to Live) of a key in Redis
+  const getKeyTTL = async (key) => {
+    return getTtlAsync(key); // Promisified TTL method
+  };
+
   return {
     getKey,
     setKey,
@@ -113,6 +119,7 @@ function RedisManager(host, port, serviceName, password, options) {
     getKeysByRegex,
     incrementKeyByValue,
     setKeyTTL,
+    getKeyTTL,
     DEFAULT_EXPIRY: EXPIRY,
   };
 }
